@@ -12,7 +12,7 @@ import lombok.*;
 public class JobSeeker {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer jobseeker_id;
     private Integer user_id;
     private String photo;

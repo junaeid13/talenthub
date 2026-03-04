@@ -14,7 +14,7 @@ import lombok.*;
 @Entity
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer location_id;
     private String Street;
     private String house_no;

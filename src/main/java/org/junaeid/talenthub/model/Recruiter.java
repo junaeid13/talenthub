@@ -14,7 +14,7 @@ import lombok.*;
 @Entity
 public class Recruiter {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer recruiter_id;
     private Integer user_id;
     private Integer company_id;
