@@ -25,7 +25,7 @@ public class UserController {
     public String getUsers(Model model) {
         List<User> all_users = userService.getUsers();
         if (all_users != null)
-            model.addAllAttributes(userService.getUsers());
+            model.addAttribute("users", all_users);
         return "user/index";
     }
 }

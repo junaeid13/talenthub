@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+<head>
+    <title>User</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="w3-container" style="margin-top:80px">
+
+        <h2 class="w3-border-bottom w3-padding-16">All Users</h2>
+
+        <!-- Header Row -->
+        <div class="w3-row w3-black w3-padding w3-bold">
+            <div class="w3-col s2">ID</div>
+            <div class="w3-col s2">Username</div>
+            <div class="w3-col s2">Email</div>
+            <div class="w3-col s2">Name</div>
+            <div class="w3-col s2">Address</div>
+            <div class="w3-col s2">Role</div>
+        </div>
+
+        <!-- Data Rows -->
+        <div th:each="user : ${users}"
+             class="w3-row w3-border-bottom w3-padding w3-hover-light-grey">
+
+            <div class="w3-col s2" th:text="${user.user_id}"></div>
+            <div class="w3-col s2" th:text="${user.username}"></div>
+            <div class="w3-col s2" th:text="${user.email}"></div>
+            <div class="w3-col s2" th:text="${user.name}"></div>
+            <div class="w3-col s2" th:text="${user.address}"></div>
+
+            <div class="w3-col s2">
+            <span class="w3-tag"
+                  th:text="${user.role}"
+                  th:classappend="${user.role == 'ADMIN'} ? ' w3-red' : ' w3-blue'">
+            </span>
+            </div>
+
+        </div>
+
+        <!-- Empty State -->
+        <div th:if="${#lists.isEmpty(users)}"
+             class="w3-panel w3-yellow w3-margin-top">
+            No users found.
+        </div>
+
+</section>
+</body>
+</html>
